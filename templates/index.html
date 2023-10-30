@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<style>
+body {
+	/* Image Location */
+	background-image: url("bg.jpg");
+
+	/* Background image is centered vertically and horizontally at all times */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+	/* Font Colour */
+	color:white;
+}
+
+input[type=text] {
+  border-radius:10px;
+  border: 1px solid #eee;
+  transition: .3s border-color;
+padding:10px;
+  margin:10px 0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+width:20%;
+font-family:inherit;
+  font-size: inherit;
+}
+.box:hover {
+  border: 1px solid #aaa;
+}
+
+
+button[type=submit] {
+
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+</style>  
+
+
+</head>
+
+<body>
+<center>
+ <div class="login">
+
+	<h1>Wine Quality Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+    	<input type="text"  name="fixed_acidity" placeholder="fixed acidity" required="required" /><br>
+        <input type="text"  name="volatile_acidity" placeholder="volatile acidity" required="required" /><br>
+        <input type="text"  name="citric_acid" placeholder="citric acid" required="required" /><br>
+        <input type="text"  name="residual_sugar" placeholder="residual sugar" required="required" /><br>
+        <input type="text"  name="chlorides" placeholder="chlorides" required="required" /><br>
+        <input type="text"  name="free_sulfur_dioxide" placeholder="free sulfur dioxide" required="required" /><br>
+        <input type="text"  name="total_sulfur_dioxide" placeholder="total sulfur dioxide" required="required" /><br>
+        <input type="text"  name="density" placeholder="density" required="required" /><br>
+        <input type="text"  name="pH" placeholder="pH" required="required" /><br>
+        <input type="text"  name="sulphates" placeholder="sulphates" required="required" /><br>
+        <input type="text"  name="alcohol" placeholder="alcohol" required="required" /><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+<br>
+    <br>
+   {{ result }}
+
+ </div>
+ </div>
+
+
+</body>
+</html>
